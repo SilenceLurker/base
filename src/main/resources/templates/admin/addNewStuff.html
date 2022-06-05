@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body th:object="${user}">
+    <div class="Header">
+        <span th:text="欢迎回来， + ${user.name}"></span>
+    </div>
+    <div class="Body">
+
+        <form action="#" th:action="@{admin/addNewStuffService}">
+            科室：
+            <select th:each="department : ${departments}" name="department">
+                <option th:text="${department.department}"></option>
+            </select>
+            <br />
+            员工Id<input type="number" name="stuffId"></input>
+            <br />
+            员工姓名<input type="text" name="name"></input>
+            <br />
+            员工性别<input type="checkbox" name="sex">男</input>
+            <input type="checkbox" name="sex">女</input>
+            <br />
+            员工年龄<input type="number" name="age"></input>
+            <br />
+            员工职业<select th:each="occupation : ${occupations}">
+                <option th:text="${occupation.occupation}"></option>
+            </select>
+            <br />
+            员工权限<select th:each="userRole : ${userRoles}">
+                <option th:text="${userRole.userRole}"></option>
+            </select>
+            <br />
+
+            <input type="submit"></input>
+            <input type="reset"></input>
+
+        </form>
+
+    </div>
+    <div class="Footer"></div>
+</body>
+
+</html>

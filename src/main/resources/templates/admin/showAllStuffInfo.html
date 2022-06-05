@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+    <div class="Header">
+        <span th:text="${userRole.userRole} + ${user.name} + '欢迎回来'"></span>
+        <option>
+            <select></select>
+        </option>
+    </div>
+    <div class="Body">
+        <table th:each="user:${users}">
+
+        </table>
+    </div>
+    <div class="Footer"></div>
+</body>
+
+</html>

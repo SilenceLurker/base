@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body th:object="${user}">
+    <div class="Header">
+        <span th:text="${} + ${user.name}"></span>
+    </div>
+    <div class="Body">
+        <div id="messageBox">
+            <table>
+                <tr>
+                    <th>选项</th>
+                </tr>
+                <tr>
+                    <td><a href="/addNewStuff">添加新员工信息</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/updateSalary">更新工资信息</a></td>
+                </tr>
+                <tr>
+                    <td><button>发放工资</button></td>
+                </tr>
+                <tr>
+                    <td><a href="/showAllStuffInfo">查询全部员工信息</a></td>
+                </tr>
+            </table>
+
+
+        </div>
+    </div>
+    <div class="Footer"></div>
+</body>
+
+</html>
