@@ -4,6 +4,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import xyz.silencelurker.hw.base.entity.Stuff;
@@ -20,22 +23,28 @@ public class StuffController {
     @Resource
     private StuffService stuffService;
 
-    @RequestMapping(value = "/login")
-    public String login(Model model) {
-        String str = "stuff/showMessage";
+    @GetMapping(value = "/login")
+    public String loginGet(Model model, @ModelAttribute(name = "user") Stuff user) {
 
-        String id = null;
-        if (model.getAttribute(ID) == null) {
-            id = "1";
-        } else {
-            id = model.getAttribute("id").toString();
-        }
+        Stuff stuff = (Stuff) model.getAttribute("user");
 
-        Stuff stuff = stuffService.findById(Integer.parseInt(id));
+        stuff = stuffService.findById(stuff.getStuffId());
 
         model.addAttribute("user", stuff);
 
-        return str;
+        return "stuff/showMessage";
+    }
+
+    @PostMapping("/login")
+    public String loginPost(Model model, @ModelAttribute(name = "user") Stuff user) {
+
+        Stuff s = null;
+
+        s = stuffService.findById(user.getStuffId());
+
+        model.addAttribute("user", s);
+
+        return "stuff/showMessage";
     }
 
     /**

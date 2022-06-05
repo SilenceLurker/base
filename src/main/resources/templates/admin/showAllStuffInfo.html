@@ -16,7 +16,12 @@
     </div>
     <div class="Body">
         <table th:each="user:${users}">
-
+            <td th:text="*{stuffId}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{sex}"></td>
+            <td th:text="*{age}"></td>
+            <td th:text="*{departmentId}"></td>
+            <td th:text="*{occupationId}"></td>
         </table>
     </div>
     <div class="Footer"></div>

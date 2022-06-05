@@ -9,7 +9,7 @@
 
 <body>
     <form action="#" th:action="@{stuff/login}" th:object="${user}" method="post">
-        <span>用户Id：</span><input type="text" id="name" th:field="*{stuffId}">
+        <span>用户Id：</span><input type="number" id="id" th:field="*{stuffId}">
         <br />
         <input type="submit"></input>
         <input type="reset"></input>

@@ -9,8 +9,13 @@
 
 <body>
     <table>
-        <tr th:each="user:${user}">
-            <td th:text="${user.stuffId}"></td>
+        <tr th:object="${user}">
+            <td th:text="*{stuffId}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{sex}"></td>
+            <td th:text="*{age}"></td>
+            <td th:text="*{departmentId}"></td>
+            <td th:text="*{occupationId}"></td>
         </tr>
     </table>
 </body>
